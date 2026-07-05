@@ -9,6 +9,7 @@ int main(int argc, char *argv[]) {
 
 	if (argc == 1) {
 		printf("wgrep: searchterm [file ...]\n");
+		return 1;
 	}
 
 	// TODO: create a flow for grepping from standard input
@@ -17,7 +18,9 @@ int main(int argc, char *argv[]) {
 	// iterate thru each file and look for the search term
 	for (int i = 2; i < argc; i++) {
 		if (access(argv[i], R_OK) != 0) {
-			continue; // if the file doesn't work or doesn't exist, skip it
+			//continue; // if the file doesn't work or doesn't exist, skip it
+			printf("wgrep: cannot open file\n");
+			return 1;
 		}
 
 		fptr = fopen(argv[i], "r");
