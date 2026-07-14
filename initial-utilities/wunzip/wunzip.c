@@ -17,11 +17,11 @@ int main(int argc, char *argv[]) {
         }
 
         char current;
-        while (fread(&count, sizeof(int), 1, file) == 1) {
-            fread(&current, sizeof(char), 1, file);
+        while (fread(&count, sizeof(int), 1, file) == 1) { // while there is a count
+            fread(&current, sizeof(char), 1, file); // read the character to repeat
 
             for (int i = 0; i < count; i++) {
-                putchar(current);
+                putchar(current); // print the character to stdout for however many iterations are stipulated in the zipped file
             }
         }
     }
